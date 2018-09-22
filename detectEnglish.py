@@ -29,7 +29,7 @@ def getEnglishCount(message):
         return 0.0
 
     matches = 0
-    for words in possibleWords:
+    for word in possibleWords:
         if word in ENGLISH_WORDS:
             matches += 1
 
