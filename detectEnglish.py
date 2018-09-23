@@ -6,12 +6,12 @@
 #   detectEnglish.isEnglish(someString) # Returns True or False
 # (There must be a "dictionary.txt" file in this directory with all English
 # words in it, one word per line. You can download this from
-# http://invpy.com/directory.txt)
+# http://invpy.com/dictionary.txt)
 UPPERLETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-LETTERS_AND_SPACE = UPPERLETTERS + UPPERLETTERS.lower() + '\t\n'
+LETTERS_AND_SPACE = UPPERLETTERS + UPPERLETTERS.lower() + ' \t\n'
 
 def loadDictionary():
-    dictionaryFile = open('words.txt')
+    dictionaryFile = open('dictionary.txt')
     englishWords = {}
     for word in dictionaryFile.read().split('\n'):
         englishWords[word] = None
@@ -20,19 +20,19 @@ def loadDictionary():
 
 ENGLISH_WORDS = loadDictionary()
 
+
 def getEnglishCount(message):
     message = message.upper()
     message = removeNonLetters(message)
     possibleWords = message.split()
 
     if possibleWords == []:
-        return 0.0
+        return 0.0 # No words at all, so return 0.0
 
     matches = 0
     for word in possibleWords:
         if word in ENGLISH_WORDS:
             matches += 1
-
     return float(matches)/len(possibleWords)
 
 
@@ -41,7 +41,6 @@ def removeNonLetters(message):
     for symbol in message:
         if symbol in LETTERS_AND_SPACE:
             lettersOnly.append(symbol)
-
     return ''.join(lettersOnly)
 
 
