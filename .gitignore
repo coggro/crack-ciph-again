@@ -2,3 +2,5 @@ hackingciphers/
 hackingciphers.zip
 .idea/
 *.txt
+
+wordPatterns.py
