@@ -58,7 +58,7 @@ def getFrequencyOrder(message):
     return ''.join(freqOrder)
 
 
-def englishFreqmatchScore(message):
+def englishFreqMatchScore(message):
     # Return the number of matches that the string in the message
     # parameter has when its letter frequency is compared to English
     # letter frequency. A "match" is how many of its six most frequent
